@@ -1,6 +1,9 @@
 import pandas as pd
 import numpy as np
 import ast
+import requests
+
+
 
 credit=pd.read_csv('src/Dataset/tmdb_5000_credits.csv')
 movie=pd.read_csv('src/Dataset/tmdb_5000_movies.csv')
@@ -99,5 +102,5 @@ def get_recomend(title,cosign_simularity=cosign_simularity,nbr_of_recomendation=
     
     return movies_df['title'].iloc[list_index]
 
-print(get_recomend('Superman Returns'))
+# print(get_recomend('Superman Returns'))
 
