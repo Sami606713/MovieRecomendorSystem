@@ -8,7 +8,7 @@ movie=pd.read_csv('src/Dataset/tmdb_5000_credits.csv')
 def pagination():
     st.set_page_config(
     page_title="Movies Recomendor System",
-    page_icon="movie",
+    page_icon="🎬",
     layout="wide",
     initial_sidebar_state="auto"
     )
