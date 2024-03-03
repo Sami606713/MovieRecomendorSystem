@@ -16,8 +16,8 @@ def show_recomendation(title):
     with st.spinner('Recomendation is processing...'):
         from recomendor import get_recomend
         recomendation=get_recomend(title)
-        # st.text(recomendation.index)
-        x=recomendation.index
+        # st.text(recomendation)
+        x=recomendation['id'].to_list()
         poster=[get_poster(i) for i in x ]
         display_images(*poster)
 
@@ -27,13 +27,7 @@ def main():
         title=st.selectbox('Please Select Movie',movie['title'].to_list())
     if st.button('Recomend'):
         show_recomendation(title)
-        # l=['https://image.tmdb.org/t/p/original//sJpl1EfHGZhbKtZ3fWTlwrpM1tH.jpg',
-        #     'https://image.tmdb.org/t/p/original//sJpl1EfHGZhbKtZ3fWTlwrpM1tH.jpg',
-        #     'https://image.tmdb.org/t/p/original//sJpl1EfHGZhbKtZ3fWTlwrpM1tH.jpg',
-        #     'https://image.tmdb.org/t/p/original//sJpl1EfHGZhbKtZ3fWTlwrpM1tH.jpg',
-        #     'https://image.tmdb.org/t/p/original//sJpl1EfHGZhbKtZ3fWTlwrpM1tH.jpg',
-        #     'https://image.tmdb.org/t/p/original//sJpl1EfHGZhbKtZ3fWTlwrpM1tH.jpg']
-        # display_images(*l)
+      
            
                 
                

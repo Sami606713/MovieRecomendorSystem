@@ -11,7 +11,7 @@ movie=pd.read_csv('src/Dataset/tmdb_5000_movies.csv')
  
 movies=credit.merge(movie)
 
-movies=movies[['title','cast','crew','genres','keywords','tagline','overview']]
+movies=movies[['id','title','cast','crew','genres','keywords','tagline','overview']]
 
 def preprocess(text):
     text=ast.literal_eval(text)
@@ -66,7 +66,7 @@ movies['tags']=movies['overview']+' '+movies['tagline']+' '+movies['keywords']+'
 movies_df=movies.copy()
 
 # get the title and tag columns only and replce null value with empty space
-movies_df=movies_df[['title','tags']]
+movies_df=movies_df[['id','title','tags']]
 movies_df.fillna('',inplace=True)
 
 # now convert text int vector
@@ -100,7 +100,7 @@ def get_recomend(title,cosign_simularity=cosign_simularity,nbr_of_recomendation=
     
     list_index=[i[0] for i in recomend]
     
-    return movies_df['title'].iloc[list_index]
+    return movies_df[['id','title']].iloc[list_index]
 
 # print(get_recomend('Superman Returns'))
 
