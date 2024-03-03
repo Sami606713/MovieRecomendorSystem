@@ -5,7 +5,13 @@ from utils import get_poster,display_images
 # Read The Data
 movie=pd.read_csv('src/Dataset/tmdb_5000_credits.csv')
 
-
+def pagination():
+    st.set_page_config(
+    page_title="Movies Recomendor System",
+    page_icon="movie",
+    layout="wide",
+    initial_sidebar_state="auto"
+    )
 def show_recomendation(title):
     with st.spinner('Recomendation is processing...'):
         from recomendor import get_recomend
