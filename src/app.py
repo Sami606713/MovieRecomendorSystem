@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from utils import get_poster,display_images
+from utils import get_poster,display_images,fetch_trailer
 
 # Read The Data
 movie=pd.read_csv('src/Dataset/tmdb_5000_credits.csv')
@@ -33,6 +33,10 @@ def main():
                
 
 if __name__== "__main__":
-    main()
+    # main()
+    id=st.text_input('enter id')
+    trailer_key=fetch_trailer(id)
+    youtube_url=f"https://www.youtube.com/watch?v={trailer_key}"
+    st.video(youtube_url)
 
 
