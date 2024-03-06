@@ -28,15 +28,16 @@ def main():
     if st.button('Recomend'):
         show_recomendation(title)
       
-           
-                
-               
+                    
 
 if __name__== "__main__":
-    # main()
-    id=st.text_input('enter id')
-    trailer_key=fetch_trailer(id)
-    youtube_url=f"https://www.youtube.com/watch?v={trailer_key}"
-    st.video(youtube_url)
+    main()
+    # id=st.text_input('enter id')
+    # btn=st.button('submit')
+    # if(btn):
+    #     trailer_key=fetch_trailer(id)
+    #     with st.container():
+    #         youtube_url=f"https://www.youtube.com/watch?v={trailer_key}"
+    #         st.video(youtube_url)
 
 

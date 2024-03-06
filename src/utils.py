@@ -23,24 +23,29 @@ def get_poster(id):
     
 
 def display_images(*image):
-    num_image=len(image)
-    nbr_of_columns=st.columns(num_image)
+    num_image = len(image)
+    nbr_of_columns = st.columns(num_image)
 
+    # if 'show_trailer' not in st.session_state:
+    st.session_state['show_trailer'] = False
+    # st.write(st.session_state['show_trailer'])
     for i in range(num_image):
         with nbr_of_columns[i]:
             try:
-                # st.markdown(f"[![{images[i][0]}]({images[i][1]})](http://google.com.au/)")
-                st.image(image[i][1],caption=image[i][0],use_column_width='auto',width=150)
-                btn=st.button('View Trailer',key=f'trailer_button_{i}')
-                st.write(image[i][2])
-                # st.markdown(f"[Watch Trailer]()")
-                if(btn):
-                    st.write("video play")
-                    trailer_key=fetch_trailer(image[i][2])
-                    youtube_url=f"https://www.youtube.com/watch?v={trailer_key}"
+                st.image(image[i][1], caption=image[i][0], use_column_width='auto', width=150)
+
+                trailer_key = fetch_trailer(image[i][2])
+                if(trailer_key):
+                    youtube_url = f"https://www.youtube.com/watch?v={trailer_key}"
                     st.video(youtube_url)
+                    # with st.contaier():
+                    #     youtube_url = f"https://www.youtube.com/watch?v={trailer_key}"
+                    #     st.video(youtube_url)
+                else:
+                    st.write('trailer not found')
             except:
                 st.warning(f"{image[i][0]}")
+
 
 
 def fetch_trailer(movie_id):
