@@ -25,19 +25,11 @@ def main():
     st.title('Movie Recomendor System')
     with st.container(border=True):
         title=st.selectbox('Please Select Movie',movie['title'].to_list())
-    if st.button('Recomend'):
+    if st.button('Recommend'):
         show_recomendation(title)
       
                     
 
 if __name__== "__main__":
     main()
-    # id=st.text_input('enter id')
-    # btn=st.button('submit')
-    # if(btn):
-    #     trailer_key=fetch_trailer(id)
-    #     with st.container():
-    #         youtube_url=f"https://www.youtube.com/watch?v={trailer_key}"
-    #         st.video(youtube_url)
-
 
